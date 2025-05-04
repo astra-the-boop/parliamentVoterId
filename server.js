@@ -237,29 +237,83 @@ code{
 h1{
     font-size: 40px
 }
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 99999px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.125);
+    letter-spacing: 0.009em;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
+    box-sizing: border-box;
+    margin-top: 10px;
+    min-width: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
+    line-height: inherit;
+    text-decoration: none;
+    padding: 16px 16px 16px 16px
+    color: #ffffff;
+    background-color: #ec3750;
+    border: 0;
+    font-size:16px;
+    background: none;
+    color: #ec3750;
+    border: 2px solid currentcolor;
+    padding: 5px 5px 5px 5px
+  }
+  button:focus,
+  button:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.0625),0 8px 12px rgba(0, 0, 0, 0.125);;
+    transform: scale(1.0625);
+  }
+  summary::marker{
+    content: "";
+  }
+  code{
+    color: #e0e6ed;
+  }
     </style>
-    <title>Voter Identification Code - Hack Club Parliament</title>
+    <title>May 2025 Voter ID Registration - Hack Club Parliament</title>
 </head>
 <body>
+    <script>
+    function copyText(id) {
+        const text = document.getElementById(id).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied " + id + " to clipboard");
+        }).catch(err => {
+            alert("Failed to copy text: " + err);
+        });
+    }
+</script>
     <div id="header">
         <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
     </div>
     <div id="body">
         <h1>Thank you for voting in the May 2025 Parliament elections!</h1>
-        <h3 style="color:#338eda">Your voter identification details are below:</h3>
-        <br>
+        <h2 style="color:#338eda">Your voter identification details are below:</h2>
         <details>
         <summary>
         <h3>Do NOT share your voter identification code, this code is used to identify you are the real voter. This code is only valid for the May 2025 Election cycle. Click on this text to proceed</h3>
     </summary>
     <p style="color: #338eda"><b>Slack ID:</b></p>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
-        <code>${userInfo.data.sub}</code>
+        <code id="Slack_ID">${userInfo.data.sub}</code>
         </div>
+        <button onclick="copyText('Slack_ID')">Copy text</button>
 <br><b><p style="color: #338eda">Voter Identification Code:</p></b>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
-        <code>${cipherProcess(userInfo.data.sub)}</code>
+        <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub)}</code>
         </div>
+        <button onclick="copyText('Voter_ID_Code')">Copy text</button>
     </details>
     <br><br><p style="color: #8492a6">The Parliament of Hack Club (Hack Club Parliament) and other associated communities and entities are not associated with the Hack Club non-profit organization. This is an unofficial community group and only exists for the purpose of entertainment.</p>
     </div>
