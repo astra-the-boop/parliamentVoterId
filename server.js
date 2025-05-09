@@ -139,6 +139,24 @@ function cipherProcess(input){
 
 //the rest of the code below :3c
 
+async function sendDM(channelID, messageText){
+    try{
+        const response = await axios.post("https://slack.com/api/chat.postMessage",{
+            channel: channelID,
+            text: messageText
+        },{
+            headers:{
+                "Authorization": `Bearer ${process.env.BOT_TOKEN}`,
+                "Content-Type": "application/json"
+            }
+        });
+        console.log("Slack API response:", response.data);
+    }
+    catch(error){
+        console.error(`Error sending DM - ${error.response?.data || error.message}`);
+    }
+}
+
 app.get("/callback", async (req, res) => {
     const code = req.query.code;
 
@@ -167,6 +185,8 @@ app.get("/callback", async (req, res) => {
         if(!userInfo.data.sub){
             return res.status(500).send(`Error: ${userInfo.data.sub}`);
         }
+
+        await sendDM(userInfo.data.sub, "test");
 
         res.send(`<!DOCTYPE html>
 <html lang="en">
@@ -304,12 +324,12 @@ button {
         <summary>
         <h3>Do NOT share your voter identification code, this code is used to identify you are the real voter. This code is only valid for the May 2025 Election cycle. Click on this text to proceed</h3>
     </summary>
-    <p style="color: #338eda"><b>Slack ID:</b></p>
+    <h2 style="color: #338eda"><b>Slack ID:</b></h2>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
         <code id="Slack_ID">${userInfo.data.sub}</code>
         </div>
         <button onclick="copyText('Slack_ID')">Copy text</button>
-<br><b><p style="color: #338eda">Voter Identification Code:</p></b>
+<br><br><br><b><h2 style="color: #338eda">Voter Identification Code:</h2></b>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
         <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub)}</code>
         </div>
