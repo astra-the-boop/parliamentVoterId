@@ -139,7 +139,7 @@ function cipherProcess(input){
 
 //the rest of the code below :3c
 
-async function sendDM(channelID, messageText){
+async function sendDM(channelID, messageText, time){
     try{
         const response = await axios.post("https://slack.com/api/chat.postMessage",{
             channel: channelID,
@@ -159,7 +159,7 @@ async function sendDM(channelID, messageText){
 
 app.get("/callback", async (req, res) => {
     const code = req.query.code;
-
+    const unixTimestamp = Date.now();
     try{
         const tokenRes = await axios.post("https://slack.com/api/openid.connect.token", null, {
             params: {
@@ -186,7 +186,12 @@ app.get("/callback", async (req, res) => {
             return res.status(500).send(`Error: ${userInfo.data.sub}`);
         }
 
-        await sendDM(userInfo.data.sub, "test");
+        await sendDM(userInfo.data.sub, `:parliament-mini: *Thank you for signing up to vote in the May 2025 Hack Club elections.* :tada:
+
+> Time of retrieval: ${unixTimestamp} 
+> User Slack ID: ${userInfo.data.sub}
+
+_Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`);
 
         res.send(`<!DOCTYPE html>
 <html lang="en">
@@ -282,7 +287,6 @@ button {
     padding: 16px 16px 16px 16px
     color: #ffffff;
     background-color: #ec3750;
-    border: 0;
     font-size:16px;
     background: none;
     color: #ec3750;
@@ -318,20 +322,21 @@ button {
         <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
     </div>
     <div id="body">
-        <h1>Thank you for voting in the May 2025 Parliament elections!</h1>
-        <h2 style="color:#338eda">Your voter identification details are below:</h2>
+        <h1>Thank you for signing up to vote in the May 2025 Parliament elections!</h1>
+        <h2 style="color:#338eda">Your voter identification details are below. Please submit this on your vote ballot.</h2>
+        <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
         <details>
         <summary>
-        <h3>Do NOT share your voter identification code, this code is used to identify you are the real voter. This code is only valid for the May 2025 Election cycle. Click on this text to proceed</h3>
+        <h3>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the May 2025 Election cycle. Click on this text to proceed</h3>
     </summary>
     <h2 style="color: #338eda"><b>Slack ID:</b></h2>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
         <code id="Slack_ID">${userInfo.data.sub}</code>
         </div>
         <button onclick="copyText('Slack_ID')">Copy text</button>
-<br><br><br><b><h2 style="color: #338eda">Voter Identification Code:</h2></b>
+<br><br><b><h2 style="color: #338eda">Voter Identification Code:</h2></b>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
-        <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub)}</code>
+        <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub + unixTimestamp)}</code>
         </div>
         <button onclick="copyText('Voter_ID_Code')">Copy text</button>
     </details>
