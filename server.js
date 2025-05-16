@@ -13,6 +13,15 @@ function base64(input){
     return Buffer.from(input).toString('base64')
 }
 
+function xorEncrypt(input, key){
+    const keyBytes = new textEncoder().encode(key);
+    const result = new uint8Array(input.length);
+    for(let i=0; i<input.length; i++){
+        result[i] = data[i] ^ keyBytes[i % keyBytes.length];
+    }
+    return result;
+}
+
 function replace(input,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,zero,one,two,three,four,five,six,seven,eight,nine){
     let output = "";
     for(i=0; i<input.length; i++){
@@ -336,7 +345,7 @@ button {
         <button onclick="copyText('Slack_ID')">Copy text</button>
 <br><br><b><h2 style="color: #338eda">Voter Identification Code:</h2></b>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
-        <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub + unixTimestamp)}</code>
+        <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub)}</code>
         </div>
         <button onclick="copyText('Voter_ID_Code')">Copy text</button>
     </details>
