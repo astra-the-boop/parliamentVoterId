@@ -195,9 +195,9 @@ app.get("/callback", async (req, res) => {
             return res.status(500).send(`Error: ${userInfo.data.sub}`);
         }
 
-        await sendDM(userInfo.data.sub, `:parliament-mini: *Thank you for signing up to vote in the May 2025 Hack Club elections.* :tada:
+        await sendDM(userInfo.data.sub, `:parliament-mini: *Thank you for signing up to vote in the August 2025 Hack Club elections.* :tada:
 
-> Time of retrieval: ${unixTimestamp} 
+> Time of retrieval *(THIS IS NOT THE VOTER ID)*: ${unixTimestamp} 
 > User Slack ID: ${userInfo.data.sub}
 
 _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`);
@@ -314,7 +314,7 @@ button {
     color: #e0e6ed;
   }
     </style>
-    <title>May 2025 Voter ID Registration - Hack Club Parliament</title>
+    <title>August 2025 Voter ID Registration - Hack Club Parliament</title>
 </head>
 <body>
     <script>
@@ -331,12 +331,12 @@ button {
         <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
     </div>
     <div id="body">
-        <h1>Thank you for signing up to vote in the May 2025 Parliament elections!</h1>
+        <h1>Thank you for signing up to vote in the August 2025 General Elections!</h1>
         <h2 style="color:#338eda">Your voter identification details are below. Please submit this on your vote ballot.</h2>
         <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
         <details>
         <summary>
-        <h3>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the May 2025 Election cycle. Click on this text to proceed</h3>
+        <h3>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle. Click on this text to proceed</h3>
     </summary>
     <h2 style="color: #338eda"><b>Slack ID:</b></h2>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
