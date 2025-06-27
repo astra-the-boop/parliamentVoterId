@@ -2,11 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const app = express();
-const port = 3001;
+const port = 3002;
 
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
-const redirectUri = "https://mackerel-moved-elephant.ngrok-free.app/callback";
+const clientId = process.env.CLIENT_ID1;
+const clientSecret = process.env.CLIENT_SECRET1;
+const redirectUri = "https://mackerel-moved-elephant.ngrok-free.app/physical";
 
 //defining cipher methods as functions for convenience's sake
 function base64(input){
@@ -155,7 +155,7 @@ async function sendDM(channelID, messageText, time){
             text: messageText
         },{
             headers:{
-                "Authorization": `Bearer ${process.env.BOT_TOKEN}`,
+                "Authorization": `Bearer ${process.env.BOT_TOKEN1}`,
                 "Content-Type": "application/json"
             }
         });
@@ -331,7 +331,7 @@ button {
         <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
     </div>
     <div id="body">
-        <h1>Thank you for signing up to vote in the August 2025 General Elections!</h1>
+        <h1>Thank you for signing up to vote in the August 2025 General Elections (physically)!</h1>
         <h2 style="color:#338eda">Your voter identification details are below. Please submit this on your vote ballot.</h2>
         <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
         <details>
