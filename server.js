@@ -334,10 +334,10 @@ button {
         <h1>Thank you for signing up to vote in the August 2025 General Elections!</h1>
         <h2 style="color:#338eda">Your voter identification details are below. Please submit this on your vote ballot.</h2>
         <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
-        <details>
-        <summary>
-        <h3>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle. Click on this text to proceed</h3>
-    </summary>
+        
+        <h2>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle.</h2>
+        <button id="proceed" onclick="document.getElementById('details').style.display = 'block'; document.getElementById('proceed').style.display = 'none'">Proceed</button>
+        <div id="details" style="display: none">
     <h2 style="color: #338eda"><b>Slack ID:</b></h2>
         <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
         <code id="Slack_ID">${userInfo.data.sub}</code>
@@ -348,7 +348,7 @@ button {
         <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub)}</code>
         </div>
         <button onclick="copyText('Voter_ID_Code')">Copy text</button>
-    </details>
+        </div>
     <br><br><p style="color: #8492a6">The Parliament of Hack Club (Hack Club Parliament) and other associated communities and entities are not associated with the Hack Club non-profit organization. This is an unofficial community group and only exists for the purpose of entertainment.</p>
     </div>
 </body>

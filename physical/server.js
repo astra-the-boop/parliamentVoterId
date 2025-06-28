@@ -207,117 +207,123 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
 <head>
     <meta charset="UTF-8"/>
     <style>
-        @font-face {
-    font-family: 'Phantom Sans';
-    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff')
-    format('woff'),
-    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2')
-    format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Phantom Sans';
-    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff')
-    format('woff'),
-    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2')
-    format('woff2');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Phantom Sans';
-    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff')
-    format('woff'),
-    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2')
-    format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
+    @font-face {
+      font-family: 'Phantom Sans';
+      src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Phantom Sans';
+      src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2') format('woff2');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
 
-body{
-    background-color: #e0e6ed;
-    margin: 0;
-}
+    body {
+      background-color: #e0e6ed;
+      margin: 0;
+      font-family: 'Phantom Sans', sans-serif;
+    }
 
-code{
-    background-color: #8492a6;
-    color: black
-}
+    #header {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+    }
 
-#body {
-    font-family: 'Phantom Sans';
-    text-align: center;
-    color: #ec3750;
-    padding: 0 20% 0 20%
-}
+    #logo {
+      height: 60px;
+    }
 
-#header{
-    background-color: #333333;
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 15px;
-    padding-bottom: 20px;
-}
+    #body {
+      text-align: center;
+      color: #ec3750;
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-#logo {
-    height: 60px;
-}
+    h1 {
+      font-size: 1.75rem;
+    }
 
-h1{
-    font-size: 40px
-}
+    h2 {
+      font-size: 1.2rem;
+      color: #ec3750;
+    }
 
-button {
-    cursor: pointer;
-    font-family: inherit;
-    border-radius: 99999px;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.125);
-    letter-spacing: 0.009em;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
-    box-sizing: border-box;
-    margin-top: 10px;
-    min-width: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    text-align: center;
-    line-height: inherit;
-    text-decoration: none;
-    padding: 16px 16px 16px 16px
-    color: #ffffff;
-    background-color: #ec3750;
-    font-size:16px;
-    background: none;
-    color: #ec3750;
-    border: 2px solid currentcolor;
-    padding: 5px 5px 5px 5px
-  }
-  button:focus,
-  button:hover {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.0625),0 8px 12px rgba(0, 0, 0, 0.125);;
-    transform: scale(1.0625);
-  }
-  summary::marker{
-    content: "";
-  }
-  code{
-    color: #e0e6ed;
-  }
-    </style>
+    h3 {
+      font-size: 1rem;
+      color: #8492a6;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 99999px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.125);
+      transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: none;
+      color: #ec3750;
+      border: 2px solid currentcolor;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    code {
+      display: inline-block;
+      background-color: #8492a6;
+      color: #e0e6ed;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-family: monospace;
+      margin-top: 5px;
+      word-wrap: break-word;
+    }
+
+    #details {
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 3px solid #ec3750;
+      padding: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.3rem; }
+      h2 { font-size: 1rem; }
+      td { font-size: 1.2rem; padding: 8px; }
+      button { width: 100%; padding: 10px; }
+    }
+  </style>
     <title>August 2025 Voter ID Registration - Hack Club Parliament</title>
 </head>
 <body>
-    <script>
+<script>
     function copyText(id) {
         const text = document.getElementById(id).textContent;
         navigator.clipboard.writeText(text).then(() => {
@@ -327,30 +333,36 @@ button {
         });
     }
 </script>
-    <div id="header">
-        <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
+<div id="header">
+    <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
+</div>
+<div id="body">
+    <h1>Thank you for signing up to vote in the August 2025 General Elections!</h1>
+    <h2 style="color:#338eda">Your voter identification details are below. Please submit this on your vote ballot.</h2>
+    <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
+
+    <h2>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle.</h2>
+    <button id="proceed" onclick="document.getElementById('details').style.display = 'block'; document.getElementById('proceed').style.display = 'none'">Proceed</button>
+    <div id="details" style="display:none;">
+      <h2 style="text-align: left">Slack ID:</h2>
+      <table>
+        <tr>
+          <td><b>U</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+          <td><b>1</b></td>
+        </tr>
+      </table><br>
     </div>
-    <div id="body">
-        <h1>Thank you for signing up to vote in the August 2025 General Elections (physically)!</h1>
-        <h2 style="color:#338eda">Your voter identification details are below. Please submit this on your vote ballot.</h2>
-        <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
-        <details>
-        <summary>
-        <h3>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle. Click on this text to proceed</h3>
-    </summary>
-    <h2 style="color: #338eda"><b>Slack ID:</b></h2>
-        <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
-        <code id="Slack_ID">${userInfo.data.sub}</code>
-        </div>
-        <button onclick="copyText('Slack_ID')">Copy text</button>
-<br><br><b><h2 style="color: #338eda">Voter Identification Code:</h2></b>
-        <div style="border-radius: 5px; background-color: #8492a6; padding: 10px">
-        <code id="Voter_ID_Code">${cipherProcess(userInfo.data.sub)}</code>
-        </div>
-        <button onclick="copyText('Voter_ID_Code')">Copy text</button>
-    </details>
     <br><br><p style="color: #8492a6">The Parliament of Hack Club (Hack Club Parliament) and other associated communities and entities are not associated with the Hack Club non-profit organization. This is an unofficial community group and only exists for the purpose of entertainment.</p>
-    </div>
+</div>
 </body>
 </html>
 
