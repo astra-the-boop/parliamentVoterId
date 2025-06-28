@@ -341,7 +341,7 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
     <h2 style="color:#338eda">Your voter identification details are below. Please fill out your ballot according to the instructions on the sheet with the information provided below.</h2>
     <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
 
-    <h2>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle.</h2>
+    <h2>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle on physical ballots.</h2>
     <button id="proceed" onclick="document.getElementById('details').style.display = 'block'; document.getElementById('proceed').style.display = 'none'">Proceed</button>
     <div id="details" style="display:none;">
       <h2 style="text-align: left">SLACK ID</h2>
@@ -360,8 +360,8 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
           <td style="color: black"><b>1</b></td>
         </tr>
       </table><br>
-      <hr style="color: #ec3750">
-      <h2 style="text-align: left; margin-bottom: 0px">VOTER BLOCK</h2>
+      <hr style="color: #ec3750"><br>
+      <h2 style="text-align: left; margin-bottom: -3px">VOTER BLOCK</h2>
       <table>
         <tr>
             <td style="border-width: 0px"><h2 style="margin-bottom: 2px">BLOCK A</h2></td>
@@ -372,6 +372,18 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
           <td style="height: 0.7rem; width: 2rem"><b></b></td>
           <td style="height: 0.7rem; width: 2rem"><b></b></td>
           <td style="height: 0.7rem; width: 2rem; background-color: gray"><b></b></td>
+        </tr>
+      </table><br>
+      <hr style="color: #ec3750"><br>
+      <h2 style="text-align: left">VOTER IDENTIFICATION CODE</h2>
+      <table>
+        <tr>
+          <td style="color: black"><b>1</b></td>
+          <td style="color: black"><b>2</b></td>
+          <td style="color: black"><b>3</b></td>
+          <td style="color: black"><b>A</b></td>
+          <td style="color: black"><b>B</b></td>
+          <td style="color: black"><b>C</b></td>
         </tr>
       </table><br>
     </div>
