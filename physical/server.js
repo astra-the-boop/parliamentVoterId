@@ -415,12 +415,15 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
     <script>
         if(voterBlock === 0){
             document.getElementById("bA").style.backgroundColor = "#333333";
+            document.getElementById("bA").innerHTML = "<p style='color: #e0e6ed; font-size: 0.7rem; margin-top: 0.1rem; margin-bottom: 0.1rem'>Fill this box on your ballot</p>"
         }
         if(voterBlock === 1){
             document.getElementById("bB").style.backgroundColor = "#333333";
+            document.getElementById("bB").innerHTML = "<p style='color: #e0e6ed; font-size: 0.7rem; margin-top: 0.1rem; margin-bottom: 0.1rem'>Fill this box on your ballot</p>"
         }
         if(voterBlock === 2){
             document.getElementById("bC").style.backgroundColor = "#333333";
+            document.getElementById("bC").innerHTML = "<p style='color: #e0e6ed; font-size: 0.7rem; margin-top: 0.1rem; margin-bottom: 0.1rem'>Fill this box on your ballot</p>"
         }
     </script>
 </body>
