@@ -8,6 +8,8 @@ const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
 const redirectUri = `${process.env.REDIRECT_DOMAIN}/callback`;
 
+const key = process.env.ENCRYPT_KEY;
+
 //defining cipher methods as functions for convenience's sake
 function base64(input){
     return Buffer.from(input).toString('base64')

@@ -9,6 +9,8 @@ const clientId = process.env.CLIENT_ID1;
 const clientSecret = process.env.CLIENT_SECRET1;
 const redirectUri = `${process.env.REDIRECT_DOMAIN}/physical`;
 
+const key = process.env.ENCRYPT_KEY;
+
 //defining cipher methods as functions for convenience's sake
 function base64(input){
     return Buffer.from(input).toString('base64')
@@ -354,7 +356,7 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
         });
     }
     
-    const voterBlock = ${getVoterBlock(cipherProcess(userInfo.data.sub),"exampleKey")};
+    const voterBlock = ${getVoterBlock(cipherProcess(userInfo.data.sub),key)};
 </script>
 <div id="header">
     <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
@@ -401,12 +403,12 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
       <h2 style="text-align: left; color: #e67787">VOTER IDENTIFICATION CODE</h2>
       <table>
         <tr>
-          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[0]}</b></td>
-          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[1]}</b></td>
-          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[2]}</b></td>
-          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[3]}</b></td>
-          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[4]}</b></td>
-          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[5]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), key)[0]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), key)[1]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), key)[2]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), key)[3]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), key)[4]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), key)[5]}</b></td>
         </tr>
       </table><br>
     </div>
