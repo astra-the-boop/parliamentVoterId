@@ -206,6 +206,7 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
     @font-face {
       font-family: 'Phantom Sans';
@@ -307,7 +308,7 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
     }
 
     td {
-      border: 3px solid #ec3750;
+      border: 3px solid #e67787;
       padding: 10px;
       text-align: center;
       font-size: 1.5rem;
@@ -348,25 +349,25 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
       <table>
         <tr>
           <td><b>U</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>1</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[1]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[2]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[3]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[4]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[5]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[6]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[7]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[8]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[9]}</b></td>
+          <td style="color: black"><b>${userInfo.data.sub[10]}</b></td>
         </tr>
       </table><br>
-      <hr style="color: #ec3750"><br>
-      <h2 style="text-align: left; margin-bottom: -3px">VOTER BLOCK</h2>
+      <hr style="color: #e67787"><br>
+      <h2 style="text-align: left; margin-bottom: -3px; color: #e67787">VOTER BLOCK</h2>
       <table>
         <tr>
-            <td style="border-width: 0px"><h2 style="margin-bottom: 2px">BLOCK A</h2></td>
-            <td style="border-width: 0px"><h2 style="margin-bottom: 2px">BLOCK B</h2></td>
-            <td style="border-width: 0px"><h2 style="margin-bottom: 2px">BLOCK C</h2></td>
+            <td style="border-width: 0px"><h2 style="margin-bottom: 2px; color: #e67787">BLOCK A</h2></td>
+            <td style="border-width: 0px"><h2 style="margin-bottom: 2px; color: #e67787">BLOCK B</h2></td>
+            <td style="border-width: 0px"><h2 style="margin-bottom: 2px; color: #e67787">BLOCK C</h2></td>
         </tr>
         <tr>
           <td style="height: 0.7rem; width: 2rem"><b></b></td>
@@ -374,8 +375,8 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
           <td style="height: 0.7rem; width: 2rem; background-color: gray"><b></b></td>
         </tr>
       </table><br>
-      <hr style="color: #ec3750"><br>
-      <h2 style="text-align: left">VOTER IDENTIFICATION CODE</h2>
+      <hr style="color: #e67787"><br>
+      <h2 style="text-align: left; color: #e67787">VOTER IDENTIFICATION CODE</h2>
       <table>
         <tr>
           <td style="color: black"><b>1</b></td>
