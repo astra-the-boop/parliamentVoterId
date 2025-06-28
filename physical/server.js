@@ -7,7 +7,7 @@ const port = 3002;
 
 const clientId = process.env.CLIENT_ID1;
 const clientSecret = process.env.CLIENT_SECRET1;
-const redirectUri = "https://mackerel-moved-elephant.ngrok-free.app/physical";
+const redirectUri = `${process.env.REDIRECT_DOMAIN}/physical`;
 
 //defining cipher methods as functions for convenience's sake
 function base64(input){
