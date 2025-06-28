@@ -335,7 +335,7 @@ button {
         <h2 style="color:#338eda">Your voter identification details are below. Please submit this on your vote ballot.</h2>
         <h3 style="color: #8492a6">Time of retrieval: ${unixTimestamp}</h3>
         
-        <h2>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle.</h2>
+        <h2>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle for the digital ballot.</h2>
         <button id="proceed" onclick="document.getElementById('details').style.display = 'block'; document.getElementById('proceed').style.display = 'none'">Proceed</button>
         <div id="details" style="display: none">
     <h2 style="color: #338eda"><b>Slack ID:</b></h2>
