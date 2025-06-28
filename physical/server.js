@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
+const crypto = require("crypto");
 const app = express();
 const port = 3002;
 
@@ -144,6 +145,25 @@ function cipherProcess(input){
     let output = input;
     output = base64(output);
     return output
+}
+
+function encrypt6digit(input, key){
+    const hmac = crypto.createHmac('sha256', key);
+    hmac.update(input);
+    const digest = hmac.digest();
+
+    const base36 = BigInt("0x"+digest.toString("hex")).toString(36).toUpperCase();
+
+    const alphanum = base36.replace(/[^A-Z0-9]/g, '');
+    return alphanum.slice(0,6).padEnd(6, "X");
+}
+
+function getVoterBlock(input, key){
+    const hmac = crypto.createHmac('sha256', key);
+    hmac.update(input);
+    const digest = hmac.digest();
+
+    return (digest[0] % 3); //0 to 2
 }
 
 //the rest of the code below :3c
@@ -333,6 +353,8 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
             alert("Failed to copy text: " + err);
         });
     }
+    
+    const voterBlock = ${getVoterBlock(cipherProcess(userInfo.data.sub),"exampleKey")};
 </script>
 <div id="header">
     <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cccae8b08b7481b3ad4ba320ccadf381a032c96_parliament-full.svg" id="logo">
@@ -345,10 +367,10 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
     <h2>Do NOT share your voter identification code, this code is used to identify you are a legitimate voter. This code is only valid for the August 2025 Election cycle on physical ballots.</h2>
     <button id="proceed" onclick="document.getElementById('details').style.display = 'block'; document.getElementById('proceed').style.display = 'none'">Proceed</button>
     <div id="details" style="display:none;">
-      <h2 style="text-align: left">SLACK ID</h2>
+      <h2 style="text-align: left; color: #e67787">SLACK ID</h2>
       <table>
         <tr>
-          <td><b>U</b></td>
+          <td style="color: #e67787"><b>U</b></td>
           <td style="color: black"><b>${userInfo.data.sub[1]}</b></td>
           <td style="color: black"><b>${userInfo.data.sub[2]}</b></td>
           <td style="color: black"><b>${userInfo.data.sub[3]}</b></td>
@@ -370,26 +392,37 @@ _Not you? Contact us for support in <#C08FA68NV2T> so we can remove this vote!_`
             <td style="border-width: 0px"><h2 style="margin-bottom: 2px; color: #e67787">BLOCK C</h2></td>
         </tr>
         <tr>
-          <td style="height: 0.7rem; width: 2rem"><b></b></td>
-          <td style="height: 0.7rem; width: 2rem"><b></b></td>
-          <td style="height: 0.7rem; width: 2rem; background-color: gray"><b></b></td>
+          <td style="height: 0.7rem; width: 2rem" id="bA"><b></b></td>
+          <td style="height: 0.7rem; width: 2rem" id="bB"><b></b></td>
+          <td style="height: 0.7rem; width: 2rem" id="bC"><b></b></td>
         </tr>
       </table><br>
       <hr style="color: #e67787"><br>
       <h2 style="text-align: left; color: #e67787">VOTER IDENTIFICATION CODE</h2>
       <table>
         <tr>
-          <td style="color: black"><b>1</b></td>
-          <td style="color: black"><b>2</b></td>
-          <td style="color: black"><b>3</b></td>
-          <td style="color: black"><b>A</b></td>
-          <td style="color: black"><b>B</b></td>
-          <td style="color: black"><b>C</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[0]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[1]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[2]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[3]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[4]}</b></td>
+          <td style="color: black"><b>${encrypt6digit(cipherProcess(userInfo.data.sub), "exampleKey")[5]}</b></td>
         </tr>
       </table><br>
     </div>
     <br><br><p style="color: #8492a6">The Parliament of Hack Club (Hack Club Parliament) and other associated communities and entities are not associated with the Hack Club non-profit organization. This is an unofficial community group and only exists for the purpose of entertainment.</p>
 </div>
+    <script>
+        if(voterBlock === 0){
+            document.getElementById("bA").style.backgroundColor = "#333333";
+        }
+        if(voterBlock === 1){
+            document.getElementById("bB").style.backgroundColor = "#333333";
+        }
+        if(voterBlock === 2){
+            document.getElementById("bC").style.backgroundColor = "#333333";
+        }
+    </script>
 </body>
 </html>
 
